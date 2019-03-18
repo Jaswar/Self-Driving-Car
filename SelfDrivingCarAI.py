@@ -15,19 +15,21 @@ from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
 
-learningRate = 0.00001
-batchSize = 64
-memSize = 50000
-gamma = 0.9
-nActions = 3
-epsilon = 1.
-epsilonDecayRate = 0.002
-minEpsilon = 0.01
-nEpochs = 30000
-nInputs = 11
+learningRate = 0.00001    #learning rate for the model
+batchSize = 64            #size of the batch that neural network is being trained on every iteration
+memSize = 50000           #size of deep q learning memory
+gamma = 0.9               #gamma that is the value on how much next state influences previous state
+nActions = 3              #how many actions Ai can take
+epsilon = 1.              #initial epsilon also known as exploration rate
+epsilonDecayRate = 0.002  #the amount of how much epsilon is being lowered every epoch
+minEpsilon = 0.01         #the lowest possible exploration rate
+nEpochs = 30000           #how many epochs should AI train
+nInputs = 11              #how many inputs neural network has
+saveRate = 300            #every how many epochs a model is saved
 
-trainMode = False
-filepathToOpen = 'model.h5'
+trainMode = False         #if we train a model we set it to True if we test it we set it to False
+filepathToOpen = 'model.h5'  #filepath to open and test a pretrained model
+filepathToSave = 'newModel.h5' #filepath to save a model
 
 def rotate(x, y, radians):
     #This uses numpy to build a rotation matrix and take the dot product
@@ -373,6 +375,8 @@ def train():
                 
         if epsilon > minEpsilon:
             epsilon -= epsilonDecayRate
+        if trainMode and epoch % saveRate == 0:
+            model.save(filepathToSave)
         print('Epoch: ' + str(epoch) + ' Epsilon: {:.5f}'.format(epsilon) + ' Average Loss: {:.5f}'.format(loss / iteration) + ' Average reward: {:.3f}'.format(totReward / iteration))
 
 window = pyglet.window.Window(width=1000, height=800)
