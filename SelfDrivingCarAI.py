@@ -353,7 +353,7 @@ def train():
             action = 0 #as can be seen in the env.input() method, this must be an integer bethween 0 and 3 included
             if trainMode:
                 if (np.random.rand() < epsilon):
-                    action = np.random.randint(0, 3)
+                    action = np.random.randint(0, nActions)
                 else:
                     action = np.argmax(model.predict(currentState)[0])
             else:
