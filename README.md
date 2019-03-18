@@ -1,7 +1,7 @@
 # Self-Driving-Car
 This is a repository containing my Self Driving Car project. It is based on a self driving car game made by an anonymous discord user called EMJzero who had problems with implementing AI to it. Link to his game that you can play: https://pastebin.com/LaaC9p2x
 
-Requirement libraries:
+Required libraries:
 - tensorflow (recommended to use tensorflow-gpu and theano)
 - keras
 - numpy
