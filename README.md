@@ -1,2 +1,2 @@
-# ai-python
-This is a repository containing my AI Python projects
+# Self-Driving_Car
+This is a repository containing my Self Driving Car Project
