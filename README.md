@@ -10,6 +10,11 @@ Required libraries:
 - pyglet (version 1.3.2)
 - vectormath (version 0.2.1)
 
+My specs:
+- i7-7700HQ Processor
+- 16GB RAM
+- NVIDIA Quadro M1200 4GB graphics card
+
 Description of training:
   Training starts with epsilon of 1.0 which means all actions are random. It is then being lowered after every epoch until it reaches a minEpsilon value which is set by user. Model is being trained every iteration on a batch of memory records. Both batch size and memory size can be set by user. Then neural network is being saved to some filepath every n epochs. The rewards are: -0.03 as a default reward, -1 for hitting wall and 2 for crossing checkpoints which are some lines along the track. All rewards can be changed deep in code.
 
